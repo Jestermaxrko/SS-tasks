@@ -11,8 +11,7 @@ Math.factorial = function(n){
 
 function first(){
     return arr.filter((item, i, arr) => {
-        //console.log(`left: ${item} \t right: ${(arr[i - 1] + arr[ i + 1]) / 2}` );
-        return item < (arr[i - 1] + arr[ i + 1]) / 2;
+        return item < (arr[i - 1] + arr[i + 1]) / 2;
     });
 }
 
@@ -21,8 +20,7 @@ function first(){
 
 function second() { 
     return arr.filter((item, i) => {
-        //console.log(`pow: ${Math.pow(2, i)} item:${item} fact: ${ Math.factorial(i)}`);
-        return Math.pow(2, i+1) < item && item < Math.factorial(i+1);
+        return 2 << (i + 1) < item && item < Math.factorial(i + 1);
     });
 }
 
@@ -32,7 +30,7 @@ function pascalTriangle(n){
     var line = [];
     for(let i = 0; i <= n ; i++){
         var number = (Math.factorial(n)) / (Math.factorial(i) * Math.factorial(n - i));   
-        line.push(number);
+        line = [...line, number];
     }
    return line;
 }
